@@ -1,0 +1,22 @@
+/* Light mode (default) */
+:root {
+  --background: white;
+  --foreground: black;
+  /* other color variables */
+}
+
+/* Dark mode */
+.dark {
+  --background: black;
+  --foreground: white;
+  /* other dark color variables */
+}
+
+/* .backdrop-blur {
+    var(--tw-backdrop-brightness,);
+} */
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
