@@ -51,7 +51,12 @@ export function useReverseGeocodeQuery(coordinates: Coordinates | null) {
 export function useLocationSearch(query: string) {
   return useQuery({
     queryKey: WEATHER_KEYS.search(query),
-    queryFn: () => weatherAPI.searchLocation(query),
+    queryFn: async () => {
+      if (!query) {
+        throw new Error("Query is required for location search");
+      } 
+      return await weatherAPI.searchLocation(query); 
+    },
     enabled: query.length >= 3,
   });
 }
